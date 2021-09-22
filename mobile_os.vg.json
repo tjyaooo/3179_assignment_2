@@ -1,0 +1,35 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Android Market Share (2021)",
+    "width": 800,
+    "height": 600,
+    "data": {
+      "url": "https://raw.githubusercontent.com/KaneSec/vega_lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
+      "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+    },
+    "transform": [
+      {
+        "lookup": "properties.NAME",
+        "from": {
+          "data": {
+            "url": "./os_combined-ww-monthly-202106-202108-map.csv"
+          },
+          "key": "Continent",
+          "fields": ["Android"]
+        }
+      },
+      {"calculate": "datum.Android", "as": "Android Market Share"}
+    ],
+    "projection": {"type": "equirectangular"},
+    "mark": {"type": "geoshape"},
+    "encoding": {
+      "color": {
+        "field": "Android Market Share",
+        "type": "quantitative"
+      },
+      "tooltip": [
+        {"field": "properties.NAME", "type": "nominal", "title": "Country"},
+        {"field": "Android", "type": "quantitative"}
+      ]
+    }
+}
