@@ -1,7 +1,10 @@
 
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Android Market Share in Percentages (%)",
+  "title": {
+    "text": "Android Market Share in Percentages (%)",
+    "align": "center"
+  },
   "width": 800,
   "height": 600,
   "data": {
