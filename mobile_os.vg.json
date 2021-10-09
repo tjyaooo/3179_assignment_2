@@ -152,7 +152,7 @@
     },
     "opacity": {
       "condition": {
-      "test": "datum.properties.NAME == 'China'|| datum.properties.NAME == 'Australia' || datum.properties.NAME == 'Brazil' ||datum.properties.NAME == 'Italy' || datum.properties.NAME == 'Canada' || datum.properties.NAME == 'Mexico' || datum.properties.NAME == 'Sudan'",
+      "test": "datum.properties.NAME == 'China'|| datum.properties.NAME == 'Australia' || datum.properties.NAME == 'Brazil' ||datum.properties.NAME == 'Italy' || datum.properties.NAME == 'Canada' || datum.properties.NAME == 'Mexico' || datum.properties.NAME == 'Thailand' ",
       "value": 1
       },
       "value": 0
