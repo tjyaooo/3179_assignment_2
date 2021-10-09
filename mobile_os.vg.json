@@ -7,10 +7,7 @@
   },
   "width": 800,
   "height": 600,
-  "data": {
-    "url": "https://raw.githubusercontent.com/KaneSec/vega_lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
-    "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
-  },
+  
   "params": [
     {
     "name": "Continent_selection",
@@ -61,9 +58,12 @@
       "name": "Maximum Market Share (%): "
         }
     }
-
   ],
-   
+  
+  "data": {
+    "url": "https://raw.githubusercontent.com/KaneSec/vega_lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
+    "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+  },
   "transform": [
     {"filter": "Continent_selection == null || datum.Region == Continent_selection"},
     {
@@ -94,7 +94,6 @@
   ],
 
   "projection": {"type": "equirectangular"},
-  "mark": {"type": "geoshape"},
   "encoding": {
     "color": {
       "field": "Android Market Share (%)",
@@ -105,11 +104,60 @@
         "range": ["#f1eef6", "#d0d1e6", "#a6bddb", "#74a9cf","#2b8cbe","#045a8d"]
       }
     },
-    
+  
     "tooltip": [
       {"field": "properties.NAME", "type": "nominal", "title": "Country"},
       {"field": "Android Market Share", "type": "quantitative","format": "0.2%"},
       {"field": "Region", "type": "nominal","title": "Continent"}
     ]
+  },
+  "layer":[
+  {   
+  "mark": {"type": "geoshape"}
+  },
+{
+  "mark": {
+    "type": "text",
+    "align": "left",
+    "baseline": "middle",
+    "fontSize": 13,
+    "fontStyle": "italic",
+    "fontWeight":"bold",
+    "dx": -20
+  },
+  "transform": [
+    {
+      "lookup": "properties.NAME",
+      "from": {
+        "data": {
+          "url": "./country_centre_coord.json"
+        },
+        "key": "country",
+        "fields": ["latitude","longitude"]
+      }
+    },
+    {"filter": "datum.Android > marketshare_above"},
+    {"filter": "datum.Android < marketshare_below"}
+  ],
+  "encoding": {
+    "text": {"field": "properties.NAME", "type": "nominal"},
+    "color": {"value": "black"},
+    "longitude": {
+      "field": "longitude",
+      "type": "quantitative"
+    },
+    "latitude": {
+      "field": "latitude",
+      "type": "quantitative"
+    },
+    "opacity": {
+      "condition": {
+      "test": "datum.properties.NAME == 'China'|| datum.properties.NAME == 'Australia' || datum.properties.NAME == 'Brazil' ||datum.properties.NAME == 'Italy' || datum.properties.NAME == 'Canada' || datum.properties.NAME == 'Mexico' || datum.properties.NAME == 'Sudan'",
+      "value": 1
+      },
+      "value": 0
+      }
   }
+}
+]
 }
