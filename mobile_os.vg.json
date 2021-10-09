@@ -11,7 +11,36 @@
     "url": "https://raw.githubusercontent.com/KaneSec/vega_lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
     "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
   },
+  "params": [
+    {
+    "name": "Continent_selection",
+    "bind": {
+    "input": "select",
+    "options": [
+    null,
+    "North America",
+    "South America",
+    "Europe",
+    "Africa",
+    "Asia",
+    "Oceania"
+    ],
+    "labels":[
+    "Show All",
+    "North America",
+    "South America",
+    "Europe",
+    "Africa",
+    "Asia",
+    "Oceania"
+    ],
+    "name": "Continent Selection: "
+    }
+    }
+  ],
+   
   "transform": [
+    {"filter": "Continent_selection == null || datum.Region == Continent_selection"},
     {
       "lookup": "properties.NAME",
       "from": {
@@ -26,12 +55,13 @@
       "lookup": "properties.NAME",
       "from": {
         "data": {
-          "url": "https://raw.githubusercontent.com/tjyaooo/3179_homework_week_10/main/world_region.csv"
+          "url": "./world_region.csv"
         },
         "key": "Country",
         "fields": ["Region"]
       }
     },
+
     {"calculate": "datum.Android","as": "Android Market Share (%)"},
     {"calculate": "datum.Android/100","as": "Android Market Share"}
   ],
