@@ -29,11 +29,10 @@
           "url": "https://raw.githubusercontent.com/tjyaooo/3179_homework_week_10/main/world_region.csv"
         },
         "key": "Country",
-        "fields": ["Continent"]
+        "fields": ["Region"]
       }
     },
     {"calculate": "datum.Android","as": "Android Market Share (%)"},
-    {"calculate": "datum.Android/100","as": "Android Market Share"},
     {"calculate": "datum.Android/100","as": "Android Market Share"}
   ],
 
@@ -52,6 +51,7 @@
     "tooltip": [
       {"field": "properties.NAME", "type": "nominal", "title": "Country"},
       {"field": "Android Market Share", "type": "quantitative","format": "0.2%"},
+      {"field": "Region", "type": "nominal","title": "Continent"}
 
     ]
   }
