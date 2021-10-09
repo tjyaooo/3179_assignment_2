@@ -113,7 +113,9 @@
   },
   "layer":[
   {   
-  "mark": {"type": "geoshape"}
+  "mark": {"type": "geoshape",
+  "stroke": "#000000",
+  "strokeWidth": 0.5}
   },
 {
   "mark": {

@@ -5,11 +5,10 @@
         "url": "./browser_cleaned.csv"
       },
     "transform": [
-        {"calculate": "datum.Share","as": "Browser Market Share (%)"}
+        {"calculate": "datum.Share/100","as": "Browser Market Share (%)"}
     ],
     "mark": {
-        "type":"line",
-        "point": true
+        "type":"area"
     },
     "encoding": {
       "x": {
@@ -17,12 +16,18 @@
         "type": "nominal"
       },
       "y": {
-        "field": "Browser Market Share (%)",
+        "field": "Share",
+        "title":"Browser Market Share (%)",
         "type":"quantitative"
       },
       "color": {
         "field":"Browser",
         "type":"nominal"
-      }
+      },
+
+    "tooltip": [
+        {"field": "Year", "type": "nominal"},
+        {"field": "Browser Market Share (%)", "type": "quantitative", "format": "0.2%"}
+        ]
     }
   }
