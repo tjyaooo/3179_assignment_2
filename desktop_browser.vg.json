@@ -1,0 +1,28 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 300, "height": 200,
+    "data": {
+        "url": "./browser_cleaned.csv"
+      },
+    "transform": [
+        {"calculate": "datum.Share","as": "Browser Market Share (%)"}
+    ],
+    "mark": {
+        "type":"line",
+        "point": true
+    },
+    "encoding": {
+      "x": {
+        "field": "Year",
+        "type": "nominal"
+      },
+      "y": {
+        "field": "Browser Market Share (%)",
+        "type":"quantitative"
+      },
+      "color": {
+        "field":"Browser",
+        "type":"nominal"
+      }
+    }
+  }
