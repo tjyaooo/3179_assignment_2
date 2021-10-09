@@ -16,7 +16,7 @@
       "lookup": "properties.NAME",
       "from": {
         "data": {
-          "url": "https://raw.githubusercontent.com/tjyaooo/homework_week_9/master/os_combined-ww-monthly-202106-202108-map.csv"
+          "url": "https://raw.githubusercontent.com/tjyaooo/3179_homework_week_10/main/os_combined-ww-monthly-202106-202108-map.csv"
         },
         "key": "Continent",
         "fields": ["Android"]
