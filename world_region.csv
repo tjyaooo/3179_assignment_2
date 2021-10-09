@@ -7,11 +7,11 @@ Africa,Burkina
 Africa,Burundi
 Africa,Cameroon
 Africa,Cape Verde
-Africa,Central African Republic
+Africa,Central African Rep.
 Africa,Chad
 Africa,Comoros
 Africa,Congo
-Africa,Congo (Democratic Republic of the)
+Africa,Dem. Rep. Congo
 Africa,Djibouti
 Africa,Egypt
 Africa,Equatorial Guinea
@@ -22,7 +22,7 @@ Africa,Gambia
 Africa,Ghana
 Africa,Guinea
 Africa,Guinea-Bissau
-Africa,Ivory Coast
+Africa,Côte d'Ivoire
 Africa,Kenya
 Africa,Lesotho
 Africa,Liberia
@@ -44,7 +44,7 @@ Africa,Seychelles
 Africa,Sierra Leone
 Africa,Somalia
 Africa,South Africa
-Africa,South Sudan
+Africa,S. Sudan
 Africa,Sudan
 Africa,Swaziland
 Africa,Tanzania
@@ -145,6 +145,7 @@ Europe,Ukraine
 Europe,United Kingdom
 Europe,Vatican City
 North America,Antigua and Barbuda
+North America,Greenland
 North America,Bahamas
 North America,Barbados
 North America,Belize

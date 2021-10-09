@@ -36,7 +36,32 @@
     ],
     "name": "Continent Selection: "
     }
+    },
+
+    {
+    "name": "marketshare_above",
+    "value": 0,
+    "bind": {
+    "input": "range",
+    "min": 0,
+    "max": 100,
+    "step": 1,
+    "name": "Minimum Market Share (%): "
+      }
+    },
+
+    {
+      "name": "marketshare_below",
+      "value": 100,
+      "bind": {
+      "input": "range",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "name": "Maximum Market Share (%): "
+        }
     }
+
   ],
    
   "transform": [
@@ -45,7 +70,7 @@
       "lookup": "properties.NAME",
       "from": {
         "data": {
-          "url": "https://raw.githubusercontent.com/tjyaooo/3179_homework_week_10/main/os_combined-ww-monthly-202106-202108-map.csv"
+          "url": "./os_combined-ww-monthly-202106-202108-map.csv"
         },
         "key": "Continent",
         "fields": ["Android"]
@@ -61,6 +86,8 @@
         "fields": ["Region"]
       }
     },
+    {"filter": "datum.Android > marketshare_above"},
+    {"filter": "datum.Android < marketshare_below"},
 
     {"calculate": "datum.Android","as": "Android Market Share (%)"},
     {"calculate": "datum.Android/100","as": "Android Market Share"}
@@ -75,14 +102,14 @@
       "scale":{
         "type":"threshold",
         "domain":[10,30,50,70,90],
-        "range": ["#feebe2", "#fcc5c0", "#fa9fb5", "#f768a1","#c51b8a","#7a0177"]
+        "range": ["#f1eef6", "#d0d1e6", "#a6bddb", "#74a9cf","#2b8cbe","#045a8d"]
       }
     },
+    
     "tooltip": [
       {"field": "properties.NAME", "type": "nominal", "title": "Country"},
       {"field": "Android Market Share", "type": "quantitative","format": "0.2%"},
       {"field": "Region", "type": "nominal","title": "Continent"}
-
     ]
   }
 }
