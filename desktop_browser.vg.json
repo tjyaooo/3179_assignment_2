@@ -52,13 +52,6 @@
           {"field": "Browser Market Share (%)", "type": "quantitative", "format": "0.2%"}
           ]
       }
-      },
-      {
-        "mark": {"type": "rule"},
-        "encoding": {
-          "x": { "field": "Year", "type": "nominal"},
-          "color": {"field": "Year"}
-        }
       }
       
   ]
