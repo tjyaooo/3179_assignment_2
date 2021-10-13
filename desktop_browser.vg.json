@@ -2,32 +2,64 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 600, "height": 400,
     "data": {
-        "url": "./browser_cleaned.csv"
+        "url": "./data/browser_cleaned.csv"
       },
     "transform": [
         {"calculate": "datum.Share/100","as": "Browser Market Share (%)"}
     ],
-    "mark": {
+    "params": [
+      {
+        "name": "hover",
+        "select": {
+          "type": "point",
+          "on": "mouseover"
+        }
+      }
+    ],
+    "layer":[
+      {
+      "mark": {
         "type":"area"
-    },
-    "encoding": {
-      "x": {
-        "field": "Year",
-        "type": "nominal"
       },
-      "y": {
-        "field": "Share",
-        "title":"Browser Market Share (%)",
-        "type":"quantitative"
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "nominal"
+        },
+        "y": {
+          "field": "Share",
+          "title":"Browser Market Share (%)",
+          "type":"quantitative"
+        },
+        "color": {
+          "field":"Browser",
+          "type":"nominal"
+        },
+        "opacity":{
+          "condition":
+          [
+            {
+              "param": "hover",
+              "value": 1
+            }
+    
+          ],
+          "value":0.2
+          },
+  
+      "tooltip": [
+          {"field": "Year", "type": "nominal"},
+          {"field": "Browser Market Share (%)", "type": "quantitative", "format": "0.2%"}
+          ]
+      }
       },
-      "color": {
-        "field":"Browser",
-        "type":"nominal"
-      },
-
-    "tooltip": [
-        {"field": "Year", "type": "nominal"},
-        {"field": "Browser Market Share (%)", "type": "quantitative", "format": "0.2%"}
-        ]
-    }
-  }
+      {
+        "mark": {"type": "rule"},
+        "encoding": {
+          "x": { "field": "Year", "type": "nominal"},
+          "color": {"field": "Year"}
+        }
+      }
+      
+  ]
+}

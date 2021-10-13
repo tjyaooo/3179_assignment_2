@@ -83,7 +83,7 @@
 
     {
       "data":{
-          "url":"./os_combined_years.csv"
+          "url":"./data/os_combined_years.csv"
         },
         "transform": 
         [
@@ -103,7 +103,7 @@
             "lookup": "Continent",
             "from": {
               "data": {
-                "url": "./world_region.csv"
+                "url": "./data/world_region.csv"
               },
               "key": "Country",
               "fields": ["Region"]
