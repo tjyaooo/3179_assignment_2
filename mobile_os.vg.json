@@ -136,7 +136,7 @@
           }
         },
           "tooltip": [
-            {"field": "datum.properties.NAME", "type": "nominal", "title": "Country"},
+            {"field": "Continent", "type": "nominal", "title": "Country"},
             {"field": "Android Market Share", "type": "quantitative","format": "0.2%"},
             {"field": "Region", "type": "nominal","title": "Continent"}
           ]
@@ -177,10 +177,6 @@
             "type": "quantitative"
           },
           "opacity": {
-            "condition": {
-            "test": "datum.Continent.NAME == 'China'|| datum.properties.NAME == 'Australia' || datum.properties.NAME == 'Brazil' ||datum.properties.NAME == 'Italy' || datum.properties.NAME == 'Canada' || datum.properties.NAME == 'Mexico' || datum.properties.NAME == 'Thailand' || datum.properties.NAME == 'Russia' ",
-            "value": 1
-            },
             "value": 0
           }
         }
