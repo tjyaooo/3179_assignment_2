@@ -1,6 +1,6 @@
 .main_title{
     font-family:'Arial';
-    font-size:45px;
+    font-size:60px;
     text-align: center;
     padding:1%;
     font-family: 'Times New Roman', Times, serif;
@@ -40,6 +40,20 @@
     color:white;
 }
 
+#browser_title{
+    text-align: center;
+    margin-top: 2%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    font-size: 38px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color:orange;
+    font-weight: bold;
+    color:white;
+}
+
 .annotation{
     padding-left: 10%;
     padding-right: 10%;
@@ -55,6 +69,7 @@
     display:inline-block;
     margin:auto;
     text-align: center;
+    padding-bottom: 20%;
 }
 
 #search_engine_compiled{
@@ -69,4 +84,5 @@
     width:80%;
     margin:auto;
     vertical-align: top;
+    padding-top: 1.5%;
 }
