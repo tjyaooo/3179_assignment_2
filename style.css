@@ -86,3 +86,7 @@
     vertical-align: top;
     padding-top: 1.5%;
 }
+
+#desktop_market_share, #search_engine_share{
+    height: 28rem;
+}

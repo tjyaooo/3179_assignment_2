@@ -4,7 +4,8 @@
     "url": "./data/browser_cleaned.csv"
   },
   "width": "container",
-  "height": 450,
+  "height": "container",
+
   "transform": [
     {"calculate": "datum.Share/100","as": "Browser Market Share (%)"}
   ],
