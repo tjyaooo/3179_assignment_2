@@ -77,7 +77,13 @@
             {
               "mark": {"type": "text", "align": "left", "dx": 5, "dy": -5},
               "encoding": {
-                "color": {"type": "nominal", "field": "Browser"}
+                "color": {
+                  "type": "nominal", 
+                  "field": "Browser",
+                  "legend":{
+                  "orient": "left"
+                  }
+                }
               }
             }
           ]
