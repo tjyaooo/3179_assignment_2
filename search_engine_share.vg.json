@@ -41,7 +41,8 @@
                 "baseline": "middle",
                 "fontSize": 12,
                 "dy":-15,
-                "color": "#636363"
+                "color": "black",
+                "fontWeight":100
                 
     
             },
