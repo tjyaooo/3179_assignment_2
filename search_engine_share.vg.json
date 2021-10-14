@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 600,
-    "height": 350,
+    "width": "container",
+    "height": 450,
     "data": {
         "url": "./data/search_engine_share.csv"
     },
@@ -20,7 +20,15 @@
         },
         "encoding": {
           "theta": {"field": "Market_Share", "type": "quantitative"},
-          "color": {"field": "Search_Engine", "type": "nominal","title": "Search Engine"},
+          "color": {
+              "field": "Search_Engine",
+              "type": "nominal",
+              "title": "Search Engine",
+              "scale":{
+                "domain":["Google", "Baidu","DuckDuckGo","Sogou", "YANDEX", "Yahoo!", "bing", "Others"],
+                "range":["#ff7f00","#6a3d9a","#544D4D","#fdbf6f", "#fb9a99", "#b2df8a", "#33a02c", "#1f78b4"]
+              }
+            },
           "tooltip": [
             {"field": "Search_Engine", "type": "nominal", "title": "Search Engine"},
             {"field": "Market Share", "type": "quantitative","format": "0.2%"}

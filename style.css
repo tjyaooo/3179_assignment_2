@@ -1,0 +1,49 @@
+.main_title{
+    font-family:'Arial';
+    font-size:45px;
+    text-align: center;
+    padding:1%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#google_logo{
+    width:100%;
+    text-align: center;
+}
+
+#world_map{
+    padding: 0.5% 0 0 0;
+    text-align: center;
+    margin: 0 auto;
+    display:block;
+    width:80%;
+}
+
+.graph_title{
+    text-align: center;
+    padding-top: 2%;
+    font-size: 19px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+#browser_compiled{
+    width:45%;
+    display:inline-block;
+    margin:auto;
+    text-align: center;
+}
+
+#search_engine_compiled{
+    width:45%;
+    display:inline-block;
+    margin:auto;
+    text-align: center;
+    vertical-align: top;
+}
+
+#graphs_aggregrate{
+    width:80%;
+    margin:auto;
+    vertical-align: top;
+}

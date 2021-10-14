@@ -3,7 +3,7 @@
   "data": {
     "url": "./data/browser_cleaned.csv"
   },
-  "width": 700,
+  "width": "container",
   "height": 450,
   "transform": [
     {"calculate": "datum.Share/100","as": "Browser Market Share (%)"}
@@ -13,7 +13,14 @@
       "encoding": {
         "x": {"field": "Year", "type": "nominal"},
         "y": {"field": "Share", "type": "quantitative","title":"Browser Market Share (%)"},
-        "color": {"field": "Browser", "type": "nominal"}
+        "color": {
+          "field": "Browser",
+          "type": "nominal",
+          "scale":{
+            "domain":["Chrome", "IE","360 Safe Browser","Edge", "Edge Legacy", "Firefox", "Safari", "Sogou Explorer","Other"],
+            "range":["#ff7f00","#6a3d9a","#F8D780","#fdbf6f", "#fb9a99", "#EE4A92", "#33a02c", "#1f78b4","#544D4D"]
+          }
+        }
       },
       "layer": [
         {"mark": "line"},

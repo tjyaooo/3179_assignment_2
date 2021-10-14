@@ -1,12 +1,8 @@
 
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {
-    "text": "Android Market Share in Percentages (%)",
-    "align": "center"
-  },
-  "width": 1000,
-  "height": 700,
+  "width": "container",
+  "height": 500,
   
   "params": [
     {
@@ -132,7 +128,7 @@
           "scale":{
             "type":"threshold",
             "domain":[10,30,50,70,90],
-            "range": ["#f1eef6", "#d0d1e6", "#a6bddb", "#74a9cf","#2b8cbe","#045a8d"]
+            "range": ["#edf8e9", "#c7e9c0", "#a1d99b", "#74c476","#31a354","#006d2c"]
           }
         },
           "tooltip": [

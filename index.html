@@ -10,18 +10,35 @@
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 
+<!-- CSS file-->
+<link rel="stylesheet" href="style.css">
+
 <script src="google_dominance.js"></script>
 
-<title>Google's Mobile Operating System Market Share </title>
+<title>Dominance of Google</title>
 </head>
 <body>
-<h1 style="text-align: center;">Google's Mobile Operating System Market Share</h1>
-<div id="world_map"; style="text-align: center; margin: 0 auto; display:block"></div>
+<div class="main_title">Dominance of <b><i>Google</i></b></div>
+<div id="google_logo">
+    <img src="./images/google_logo.jpg">
+</div>
 
-<h1 style="text-align: center;">Google's Desktop Browser Market Share</h1>
-<div id="desktop_market_share"; style="text-align: center; margin: 0 auto; display:block"></div>
+<div class="graph_title">Android Market Share in Percentages (%)</div>
+<div id="world_map"></div>
+<br><br>
 
-<h1 style="text-align: center;">Search Engine Market Share</h1>
-<div id="search_engine_share"; style="text-align: center; margin: 0 auto; display:block"></div>
+<div id = "graphs_aggregrate">
+    <div id = "browser_compiled">
+        <div class="graph_title">Browser Market Share in Percentages (%)</div>
+        <div id="desktop_market_share" style="display:block;"></div>
+    </div>
+
+    <div id = "search_engine_compiled">
+        <div class="graph_title">Search Engine Market Share in Percentages (%)</div>
+        <div id="search_engine_share"; style="display:block"></div>
+    </div>
+</div>
+
+
 </body>
 </html>
