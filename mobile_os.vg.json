@@ -5,8 +5,8 @@
     "text": "Android Market Share in Percentages (%)",
     "align": "center"
   },
-  "width": 800,
-  "height": 600,
+  "width": 1000,
+  "height": 700,
   
   "params": [
     {
@@ -158,7 +158,7 @@
             "lookup": "Continent",
             "from": {
               "data": {
-                "url": "./country_centre_coord.json"
+                "url": "./data/country_centre_coord.json"
               },
               "key": "country",
               "fields": ["latitude","longitude"]

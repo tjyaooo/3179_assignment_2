@@ -1,0 +1,48 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height": 350,
+    "data": {
+        "url": "./data/search_engine_share.csv"
+    },
+
+    "transform":[
+        {"calculate": "datum.Market_Share/100","as": "Market Share"}
+    ],
+
+    "layer":[
+        {
+        "mark": {
+            "type": "arc", 
+            "innerRadius": 60,
+            "padAngle": 0.01,
+            "cornerRadius":4
+        },
+        "encoding": {
+          "theta": {"field": "Market_Share", "type": "quantitative"},
+          "color": {"field": "Search_Engine", "type": "nominal","title": "Search Engine"},
+          "tooltip": [
+            {"field": "Search_Engine", "type": "nominal", "title": "Search Engine"},
+            {"field": "Market Share", "type": "quantitative","format": "0.2%"}
+                ]
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "baseline": "middle",
+                "fontSize": 12,
+                "dy":-15,
+                "color": "#636363"
+                
+    
+            },
+            "encoding": {
+                "text": {"value": ["Google has an", "estimated 5.6 billion", "searches per day!"]}
+
+            }
+        }
+]
+
+
+}

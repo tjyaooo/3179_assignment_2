@@ -1,58 +1,81 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 600, "height": 400,
-    "data": {
-        "url": "./data/browser_cleaned.csv"
-      },
-    "transform": [
-        {"calculate": "datum.Share/100","as": "Browser Market Share (%)"}
-    ],
-    "params": [
-      {
-        "name": "hover",
-        "select": {
-          "type": "point",
-          "on": "mouseover"
-        }
-      }
-    ],
-    "layer":[
-      {
-      "mark": {
-        "type":"area"
-      },
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "./data/browser_cleaned.csv"
+  },
+  "width": 700,
+  "height": 450,
+  "transform": [
+    {"calculate": "datum.Share/100","as": "Browser Market Share (%)"}
+  ],
+  "layer": [
+    {
       "encoding": {
-        "x": {
-          "field": "Year",
-          "type": "nominal"
-        },
-        "y": {
-          "field": "Share",
-          "title":"Browser Market Share (%)",
-          "type":"quantitative"
-        },
-        "color": {
-          "field":"Browser",
-          "type":"nominal"
-        },
-        "opacity":{
-          "condition":
-          [
-            {
-              "param": "hover",
-              "value": 1
+        "x": {"field": "Year", "type": "nominal"},
+        "y": {"field": "Share", "type": "quantitative","title":"Browser Market Share (%)"},
+        "color": {"field": "Browser", "type": "nominal"}
+      },
+      "layer": [
+        {"mark": "line"},
+        {
+          "params": [{
+            "name": "label",
+            "select": {
+              "type": "point",
+              "encodings": ["x"],
+              "nearest": true,
+              "on": "mouseover"
             }
-    
-          ],
-          "value":0.2
+          }],
+          "mark": "point",
+          "encoding": {
+            "opacity": {
+              "condition": {
+                "param": "label",
+                "empty": false,
+                "value": 1
+              },
+              "value": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "transform": [{"filter": {"param": "label", "empty": false}}],
+      "layer": [
+        {
+          "mark": {"type": "rule", "color": "gray"},
+          "encoding": {
+            "x": {"type": "nominal", "field": "Year"}
+          }
+        },
+        {
+          "encoding": {
+            "text": {"field": "Browser Market Share (%)", "type": "quantitative", "format": "0.2%"},
+            "x": {"type": "nominal", "field": "Year"},
+            "y": {"field": "Share", "type": "quantitative"}
           },
-  
-      "tooltip": [
-          {"field": "Year", "type": "nominal"},
-          {"field": "Browser Market Share (%)", "type": "quantitative", "format": "0.2%"}
+          "layer": [
+            {
+              "mark": {
+                "type": "text",
+                "stroke": "white",
+                "strokeWidth": 2,
+                "align": "left",
+                "dx": 5,
+                "dy": -5
+              }
+            },
+            {
+              "mark": {"type": "text", "align": "left", "dx": 5, "dy": -5},
+              "encoding": {
+                "color": {"type": "nominal", "field": "Browser"}
+              }
+            }
           ]
-      }
-      }
-      
+        }
+      ]
+    }
   ]
 }
