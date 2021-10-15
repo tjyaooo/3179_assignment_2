@@ -174,7 +174,7 @@
           },
           "opacity": {
             "condition": {
-            "test": "datum.Continent == 'China'|| datum.Continent == 'Australia' || datum.Continent == 'Brazil'  || datum.Continent == 'Italy' || datum.Continent  == 'Canada' || datum.Continent  == 'Mexico' || datum.Continent  == 'Thailand' || datum.Continent  == 'Russia'",
+            "test": "datum.Continent == 'China'|| datum.Continent == 'Australia' || datum.Continent == 'Brazil'  || datum.Continent == 'Italy' || datum.Continent  == 'Canada' || datum.Continent  == 'Mexico' || datum.Continent  == 'Thailand' || datum.Continent  == 'Russia' || datum.Continent == 'Algeria'",
             "value": 1
             },
             "value": 0

@@ -3,8 +3,8 @@
     "data": {
       "url":"./data/google_annual_revenue.csv"
     },
-    "width": 800,
-    "height": 650,
+    "width": "container",
+    "height": "container",
     "transform": [
       {"window": [{"op": "sum", "field": "Step", "as": "sum"}]},
       {"window": [{"op": "lead", "field": "Year", "as": "lead"}]},
@@ -21,7 +21,7 @@
         "as": "Step"
       },
       {
-        "calculate": "(datum.Year !== 'Begin' && datum.Year !== 'End' && datum.Step > 0 ? '+' : '') + datum.Step",
+        "calculate": "(datum.Year != 2007 && datum.Year !== 'End' && datum.Step > 0 ? '+' : '') + datum.Step",
         "as": "text_Step"
       },
       {"calculate": "(datum.sum + datum.previous_sum) / 2", "as": "center"},
@@ -38,7 +38,8 @@
       "x": {
         "field": "Year",
         "type": "ordinal",
-        "sort": null
+        "sort": null,
+        "axis":{"title": "Year"}
       }
     },
     "layer": [
@@ -54,7 +55,7 @@
           "color": {
             "condition": [
               {
-                "test": "datum.Year === 'Begin' || datum.Year === 'End'",
+                "test": "datum.Year == 2007 || datum.Year === 'End'",
                 "value": "DodgerBlue"
               }
             ],
@@ -89,22 +90,30 @@
       },
       
       {
-        "mark": {"type": "text", "fontWeight": "bold", "baseline": "middle"},
+        "mark": {
+            "type": "text", 
+            "fontWeight": "bold",
+            "baseline": "middle",
+            "dy":45
+        },
         "encoding": {
           "y": {"field": "center", "type": "quantitative"},
           "text": {"field": "text_Step", "type": "nominal"},
           "color": {
+            "value": "green"
+          },
+          "opacity":{
             "condition": [
-              {
-                "test": "datum.Year === 'Begin' || datum.Year === 'End'",
-                "value": "#white"
-              }
-            ],
-            "value": "white"
+                {
+                  "test": "datum.Year == 2007 || datum.Year === 'End'",
+                  "value": 0
+                }
+              ],
+              "value":1
           }
         }
       }
     ],
-    "config": {"text": {"fontWeight": "bold", "color": "White"}}
+    "config": {"text": {"fontWeight": "bold", "color": "black"}}
   }
   
