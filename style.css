@@ -70,15 +70,15 @@
     vertical-align: top;
     padding-top: 1.5%;
     text-align: center;
-    overflow-y: auto;
+    font-size:0;
 }
 
 
 #browser_compiled, #search_engine_compiled{
     width:50%;
-    float: left;
     margin:auto;
     text-align: center;
+    display:inline-block;
 }
 
 #desktop_market_share, #search_engine_share{
