@@ -1,8 +1,8 @@
 .main_title{
-    font-size:50px;
+    font-size:3.5rem;
     text-align: center;
-    padding:1%;
     font-family: 'Times New Roman', Times, serif;
+    padding:1%;
 }
 
 #google_logo{
@@ -60,7 +60,7 @@
     padding-bottom: 1%;
     text-align: justify;
     align-self: center;
-    font-size: 17px;
+    font-size: 1.3rem;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -103,10 +103,9 @@
 }
 
 #revenue_content{
-    width:70%;
+    width:77.5%;
     margin:auto;
     vertical-align: top;
-    padding-top: 1.5%;
     text-align: center;
     display:inline-block;
 }
@@ -114,32 +113,38 @@
 #revenue_graph_aggregrate{
     margin:auto;
     vertical-align: top;
-    padding-top: 1.5%;
     text-align: center;
     width:100%;
-    padding-bottom: 20%;
     display:inline-block;
 }
 
 #yearly_revenue_graph{
-    height: 25rem;
+    height: 27rem;
     width: 100%;
     display:inline-block;
+    padding-right: 0;
     
 }
 
 #annotation_growth{
-    width:29.4%;
-    padding-top: 2%;
+    width:20%;
     padding-bottom: 1%;
     text-align: justify;
-    font-size: 17px;
+    font-size: 1.3rem;
     font-family: Arial, Helvetica, sans-serif;
     display:inline-block;
+    padding-left: 2.5%;
 }
 
 #growth_compiled{
     padding-left: 10%;
     padding-right: 10%;
+    padding-top:2%;
     text-align: center;
+    font-size:0;
+    padding-bottom: 20%;
+}
+
+#yearly_revenue_graph_title{
+    padding-top:0;
 }

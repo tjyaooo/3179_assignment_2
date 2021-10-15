@@ -94,7 +94,7 @@
             "type": "text", 
             "fontWeight": "bold",
             "baseline": "middle",
-            "dy":45
+            "dy":30
         },
         "encoding": {
           "y": {"field": "center", "type": "quantitative"},
