@@ -1,0 +1,110 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url":"./data/google_annual_revenue.csv"
+    },
+    "width": 800,
+    "height": 650,
+    "transform": [
+      {"window": [{"op": "sum", "field": "Step", "as": "sum"}]},
+      {"window": [{"op": "lead", "field": "Year", "as": "lead"}]},
+      {
+        "calculate": "datum.lead === null ? datum.Year : datum.lead",
+        "as": "lead"
+      },
+      {
+        "calculate": "datum.Year === 'End' ? 0 : datum.sum - datum.Step",
+        "as": "previous_sum"
+      },
+      {
+        "calculate": "datum.Year === 'End' ? datum.sum : datum.Step",
+        "as": "Step"
+      },
+      {
+        "calculate": "(datum.Year !== 'Begin' && datum.Year !== 'End' && datum.Step > 0 ? '+' : '') + datum.Step",
+        "as": "text_Step"
+      },
+      {"calculate": "(datum.sum + datum.previous_sum) / 2", "as": "center"},
+      {
+        "calculate": "datum.sum < datum.previous_sum ? datum.sum : ''",
+        "as": "sum_dec"
+      },
+      {
+        "calculate": "datum.sum > datum.previous_sum ? datum.sum : ''",
+        "as": "sum_inc"
+      }
+    ],
+    "encoding": {
+      "x": {
+        "field": "Year",
+        "type": "ordinal",
+        "sort": null
+      }
+    },
+    "layer": [
+      {
+        "mark": {"type": "bar", "size": 45},
+        "encoding": {
+          "y": {
+            "field": "previous_sum",
+            "type": "quantitative",
+            "title": "Yearly Revenue (Billion USD)"
+          },
+          "y2": {"field": "sum"},
+          "color": {
+            "condition": [
+              {
+                "test": "datum.Year === 'Begin' || datum.Year === 'End'",
+                "value": "DodgerBlue"
+              }
+            ],
+            "value": "MediumSeaGreen"
+          }
+        }
+      },
+      {
+        "mark": {
+          "type": "rule",
+          "color": "#404040",
+          "opacity": 1,
+          "strokeWidth": 2,
+          "xOffset": -22.5,
+          "x2Offset": 22.5
+        },
+        "encoding": {
+          "x2": {"field": "lead"},
+          "y": {"field": "sum", "type": "quantitative"}
+        }
+      },
+      {
+        "mark": {"type": "text", "dy": -4, "baseline": "bottom"},
+        "encoding": {
+          "y": {"field": "sum_inc", "type": "quantitative"},
+          "text": {
+                "field": "sum_inc", 
+                "type": "nominal",
+                "format": ".2f"
+            }
+        }
+      },
+      
+      {
+        "mark": {"type": "text", "fontWeight": "bold", "baseline": "middle"},
+        "encoding": {
+          "y": {"field": "center", "type": "quantitative"},
+          "text": {"field": "text_Step", "type": "nominal"},
+          "color": {
+            "condition": [
+              {
+                "test": "datum.Year === 'Begin' || datum.Year === 'End'",
+                "value": "#white"
+              }
+            ],
+            "value": "white"
+          }
+        }
+      }
+    ],
+    "config": {"text": {"fontWeight": "bold", "color": "White"}}
+  }
+  
