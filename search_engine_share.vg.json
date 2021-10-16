@@ -25,8 +25,8 @@
               "type": "nominal",
               "title": "Search Engine",
               "scale":{
-                "domain":["Google", "Baidu","DuckDuckGo","Sogou", "YANDEX", "Yahoo!", "bing", "Others"],
-                "range":["#ff7f00","#6a3d9a","#544D4D","#fdbf6f", "#fb9a99", "#b2df8a", "#33a02c", "#1f78b4"]
+                "domain":["Google", "Baidu", "YANDEX", "Yahoo!", "bing", "Others"],
+                "range":["#ff7f00","#6a3d9a", "#fb9a99", "#b2df8a", "#33a02c", "#1f78b4"]
               }
             },
           "tooltip": [

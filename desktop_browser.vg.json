@@ -18,8 +18,8 @@
           "field": "Browser",
           "type": "nominal",
           "scale":{
-            "domain":["Chrome", "IE","360 Safe Browser","Edge", "Edge Legacy", "Firefox", "Safari", "Sogou Explorer","Other"],
-            "range":["#ff7f00","#6a3d9a","#F8D780","#fdbf6f", "#fb9a99", "#EE4A92", "#33a02c", "#1f78b4","#544D4D"]
+            "domain":["Chrome", "IE", "Edge Legacy", "Firefox", "Safari"],
+            "range":["#ff7f00","#6a3d9a", "#fb9a99", "#EE4A92", "#33a02c"]
           }
         }
       },
